@@ -152,6 +152,7 @@ Fake-News-Detection-Using-Machine-Learning/
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/Fake-News-Detection-Using-Machine-Learning.git
+cd Fake-News-Detection-Using-Machine-Learning
 ```
 
 ### Install Required Libraries
@@ -169,6 +170,35 @@ FakeNewsDetection.ipynb
 ```
 
 and execute all cells.
+
+---
+
+## 🏗️ Django Web Application
+
+This repository also includes a Django web app for fake news detection.
+
+### Run the Django App
+
+```bash
+cd fakenews
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r ..\requirements.txt
+python manage.py runserver
+```
+
+Then open:
+
+```
+http://127.0.0.1:8000/
+```
+
+### Web App Features
+
+- Text input area for article or headline analysis
+- Fake/Real prediction output
+- Confidence score
+- Responsive styled frontend with Django templates
 
 ---
 
