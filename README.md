@@ -236,18 +236,6 @@ http://127.0.0.1:8000/
 
 ---
 
-# 👩‍💻 Author
-
-**Chintha Gangothri**
-
-Engineering Student
-
-GitHub: https://github.com/YOUR_GITHUB_USERNAME
-
-LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN_USERNAME
-
----
-
 # 🙏 Acknowledgements
 
 - IBM watsonx.ai Studio
