@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="{% static 'detector/style.css' %}">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Fake News Detector</span>
+        <h1>Analyze headlines and articles instantly</h1>
+        <p>Paste your content below and get a quick prediction using a simple text heuristic classifier. This demo is built with Django templates and static assets.</p>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card__title">How it works</p>
+        <ul>
+          <li>Detects suspicious words like fake, hoax, fraud, or clickbait</li>
+          <li>Rates short or token-heavy text as potentially fake</li>
+          <li>Shows a confidence score and visual result</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card form-card">
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="article_text">Article text</label>
+            <textarea id="article_text" name="article_text" rows="8" placeholder="Paste the article or headline here...">{{ input_text }}</textarea>
+          </div>
+
+          {% if error %}
+            <p class="form-error">{{ error }}</p>
+          {% endif %}
+
+          <button type="submit" class="primary-button">Analyze</button>
+        </form>
+      </section>
+
+      {% if prediction %}
+      <section class="card result-card {{ prediction.label|lower }}">
+        <div class="result-header">
+          <span class="result-pill">Prediction</span>
+          <h2>{{ prediction.label }}</h2>
+        </div>
+        <p class="confidence">Confidence: <strong>{{ prediction.confidence }}</strong></p>
+        <p class="result-copy">
+          {{ prediction.message }}
+        </p>
+      </section>
+      {% endif %}
+
+      <footer class="page-footer">
+        <p>Note: This is a frontend demo with a simple heuristic classifier.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
